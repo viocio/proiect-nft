@@ -41,7 +41,7 @@ contract NFT is ERC721, Ownable {
     }
 
     function retrieveTicket(address _to) external {     // in ticketsOfUser se retine la cate bilete are dreptul un user si poate alege 
-        require(ticketsOfUser[msg.sender] >= 1);        // catre ce portofel sa trimita biletul daca vrea sa cumpere si pentru
+        require(ticketsOfUser[msg.sender] >= 1, "No tickets to retrieve");        // catre ce portofel sa trimita biletul daca vrea sa cumpere si pentru
         require(_to != address(0), "Invalid address.");  // prietenii sai.
         _mint(_to, ticketId);                          
         ticketId++;
@@ -53,5 +53,9 @@ contract NFT is ERC721, Ownable {
         uint256 balance = usdtToken.balanceOf(address(this));
         require(balance > 0, "No USDT to withdraw");
         usdtToken.transfer(owner(), balance);
+    }
+
+    function setUsdtToken(address _usdt) external onlyOwner {
+        usdtToken = IERC20(_usdt);
     }
 }
