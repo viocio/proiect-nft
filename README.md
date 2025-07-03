@@ -1,13 +1,1 @@
-# Sample Hardhat Project
-
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a Hardhat Ignition module that deploys that contract.
-
-Try running some of the following tasks:
-
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat ignition deploy ./ignition/modules/Lock.js
-```
+This projects aims to create an app in which the user acceses a site and can intercat with a smart contract. By interacting with it trough the frontend, the user can send cryptocurrencies to the contract's address, and if enough balance is stored, retrieve a ticket to a concert (or any other event) that is actually an NFT. 
